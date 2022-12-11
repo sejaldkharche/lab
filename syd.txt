@@ -1,0 +1,406 @@
+--------------------------------------------------------------------------
+Array
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function reverse(array) {
+            var output = [];
+            while (array.length) {
+                output.push(array.pop());
+            }
+
+            return output;
+        }
+
+        console.log(reverse([1, 2, 3, 4, 5, 6, 7]));
+        alert(reverse([1, 2, 3, 4, 5, 6, 7]));
+    </script>
+
+</body>
+
+</html>
+------------------------------------------------------------------------------------
+bill
+
+<!DOCTYPE html>
+
+<head>
+	<title>PHP - Calculate Electricity Bill</title>
+</head>
+
+<?php
+$result_str = $result = '';
+if (isset($_POST['unit-submit'])) {
+    $units = $_POST['units'];
+    if (!empty($units)) {
+        $result = calculate_bill($units);
+        $result_str = 'Total amount of ' . $units . ' - ' . $result;
+    }
+}
+/**
+ * To calculate electricity bill as per unit cost
+ */
+function calculate_bill($units) {
+    $unit_cost_first = 3.50;
+    $unit_cost_second = 4.00;
+    $unit_cost_third = 5.20;
+    $unit_cost_fourth = 6.50;
+
+    if($units <= 50) {
+        $bill = $units * $unit_cost_first;
+    }
+    else if($units > 50 && $units <= 100) {
+        $temp = 50 * $unit_cost_first;
+        $remaining_units = $units - 50;
+        $bill = $temp + ($remaining_units * $unit_cost_second);
+    }
+    else if($units > 100 && $units <= 200) {
+        $temp = (50 * 3.5) + (100 * $unit_cost_second);
+        $remaining_units = $units - 150;
+        $bill = $temp + ($remaining_units * $unit_cost_third);
+    }
+    else {
+        $temp = (50 * 3.5) + (100 * $unit_cost_second) + (100 * $unit_cost_third);
+        $remaining_units = $units - 250;
+        $bill = $temp + ($remaining_units * $unit_cost_fourth);
+    }
+    return number_format((float)$bill, 2, '.', '');
+}
+
+?>
+
+<body>
+	<div id="page-wrap">
+		<h1>Php - Calculate Electricity Bill</h1>
+
+		<form action="" method="post" id="quiz-form">
+            	<input type="number" name="units" id="units" placeholder="Please enter no. of Units" />
+            	<input type="submit" name="unit-submit" id="unit-submit" value="Submit" />
+		</form>
+
+		<div>
+		    <?php echo '<br />' . $result_str; ?>
+		</div>
+	</div>
+</body>
+</html>
+
+--------------------------------------------------------------------------------------------------------------------------------
+it company video at background and responsive
+
+ 
+<html lang="en">
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+    </head>
+    <style>
+        /* .d{
+            background-color: aqua;
+        } */
+        #myVideo {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    min-width: 100%;
+    min-height: 100%;
+  }
+    </style>
+    <body>
+        <div class="d">
+        <p>sbvfygifsgihiguguihkuhiuhvdiufgsybhkfugfdihfuhfhiuhcvniufyujrhgjfhiuerhefkhrujdkfuhkhfuykhkyewkhrowiurohyrhyresejal is khdnjrnhfjtedtgsdvfuyfb</p>
+        <p>vsbduidbjbdvyfiysgfubewyugebyfhebyifbhaving u is the best part od amhdgfyunkjfeuhjkhfkjefrygfjhjbcnbfucbfhjkjhyhheduhtsjdhfdhfnhhywjsbgdrwwkdb</p>
+        <p>hjvgjuydhjvuygbhjyucvuhvcyudtcuygjuydfg</p>
+        <p>cdjuhbdjfbyugnbdkudhjsdgfuyfgufuwiriuryieuj,diufhiefh</p>
+        <p>bvh fhekyeuheuuuyywjafuhencjkfuffefnkdshfwehljljiohnkehfheo</p>
+        <p>kvudhfknhthkfyynjjherououilelfj,dnelfns,nvlijlkjlj</p>
+        <p>jfkvhiufnjunfkndsakremdkifnnuihkjuihskdjvaagihjkuklhiugrgjfvbufbs</p>
+        <video autoplay muted loop id="myVideo">
+  <source src="https://player.vimeo.com/external/532665758.sd.mp4?s=1d2f7f8f2d642e28b23eef0c163d54e01cc2f389&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
+</video>
+        </div>
+    </body>
+</html>
+---------------------------------------------------------------------------------------------------------------------------------
+validation
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    <script>  
+function validateform(){  
+var name=document.myform.name.value;  
+var password=document.myform.password.value;  
+  
+if (name==null || name==""){  
+  alert("Name can't be blank");  
+  return false;  
+}else if(password.length<6){  
+  alert("Password must be at least 6 characters long.");  
+  return false;  
+  }  
+}  
+</script>   
+<form name="myform" method="post" action="abc.jsp" onsubmit="return validateform()" >  
+Name: <input type="text" name="name"><br/>  
+Password: <input type="password" name="password"><br/>  
+<input type="submit" value="register">  
+</form>
+    </body>
+</html>
+
+----------------------------------------------------------------------------------------------------
+connection with database
+
+<?php  
+
+
+$servername = "localhost";
+$username="root";
+$password="";
+$database="try1";
+
+$conn=mysqli_connect($servername,$username,$password,$database);
+
+
+if(!$conn){
+    die("Could not connect :".mysqli_connect_error());
+} else {
+    echo "\nconnection was suceesfully established";
+}
+
+
+// $sql = "CREATE DATABASE try1";
+// $result=mysqli_query($conn, $sql);
+
+// if($result){
+//     echo "DAtabase connected successfully";
+// }
+// else{
+//     echo "database not connected succesfully" . mysqli_error($conn);
+// }
+
+//create a table in db
+// $sql = "CREATE TABLE `phptrip` ( `sno` INT(6) NOT NULL , `name` VARCHAR(11) NOT NULL , `tripdest` VARCHAR(11) NOT NULL , PRIMARY KEY (`sno`)) ENGINE = InnoDB";
+// $sql = "INSERT INTO `phptrip` (`sno`, `name`, `tripdest`) VALUES ('2', 'gauri', 'mum')";
+// $sql="DELETE FROM `phptrip` WHERE `phptrip`.`sno` = 2";
+$sql = "SELECT * FROM `phptrip` WHERE `phptrip`.`sno`=1";
+$result=mysqli_query($conn, $sql);
+
+
+
+if($result){
+    echo "tabele created successfully";
+}
+else{
+    echo "table not created succesfully" . mysqli_error($conn);
+}
+
+
+?>
+-------------------------------------------------------------------------------------------------------------------------------------
+validation VIT form
+
+<!DOCTYPE html>
+<script>
+    function validateForm() {
+  let firstname = document.forms["myForm"]["firstname"].value;
+  let middlename = document.forms["myForm"]["middlename"].value;
+  let lastname = document.forms["myForm"]["lastname"].value;
+  let phone = document.forms["myForm"]["phone"].value;
+  let email = document.forms["myForm"]["email"].value;
+  let percentile = document.forms["myForm"]["percentile"].value;
+  let address = document.forms["myForm"]["address"].value;
+  var regPhone=/^\d{10}$/;
+  var regEmail=/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/g;
+  if (firstname == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+  if (middlename == "") {
+    alert("Middle name must be filled out");
+    return false;
+  }
+  if (lastname == "") {
+    alert("Last name must be filled out");
+    return false;
+  }
+  if (phone == "" || !regPhone.test(phone)) {
+                    alert("Please enter valid phone number.");
+                    return false;
+                }
+  if (email == "" || !regEmail.test(email)) {
+                    window.alert("Please enter a valid e-mail address.");
+                    return false;
+                }
+  if (percentile == "") {
+    alert("CET percentile must be filled out");
+    return false;
+  }
+  if (address == "") {
+                    window.alert("Please enter your address.");
+                    return false;
+                }
+}
+</script>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+            body{
+                font-family: Calibri, Helvetica, sans-serif;
+                background-color: #5B2C6F;
+                padding-left: 100px;
+                padding-right: 100px;
+                padding-top: 200px;
+                padding-bottom: 200px;
+            }
+
+            .container {
+              padding: 50px;
+              background-color:#BB8FCE;
+            }
+
+            input[type=text], input[type=password], textarea {
+                width: 100%;
+                padding: 7px;
+                margin: 5px 0 22px 0;
+                display: inline-block;
+                border: none;
+                background: #f1f1f1;
+            }
+            input[type=text]:focus, input[type=password]:focus {
+                background-color: orange;
+                outline: none;
+            }
+             div {
+                         padding: 10px 0;
+                     }
+            hr {
+                border: 1px solid #f1f1f1;
+                margin-bottom: 25px;
+            }
+            .submitbtn {
+                background-color: #4caf50;
+                color: white;
+                padding: 16px 20px;
+                margin: 8px 0;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+                opacity: 0.9;
+            }
+            .submitbtn:hover {
+                opacity: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <form name="myForm" onsubmit="return validateForm()" method="post">
+            <div class="container">
+                <center> <h1>VIT PUNE Student Admission Form</h1></center>
+                <hr>
+                <label><b>Firstname:</b></label>
+                <input type="text" name="firstname" placeholder="Firstname" size="15" />
+                <label><b>Middlename:</b></label>
+                <input type="text" name="middlename" placeholder="Middlename" size="15" />
+                <label><b>Lastname:</b></label>
+                <input type="text" name="lastname" placeholder="Lastname" size="15" />
+            <div>
+            <label>
+                <b>course :</b>
+            </label>
+
+            <select>
+                <option value="Course">Course</option>
+                <option value="BCA">BCA</option>
+                <option value="BBA">BBA</option>
+                <option value="B.Tech">B.Tech</option>
+                <option value="MBA">MBA</option>
+                <option value="MCA">MCA</option>
+                <option value="M.Tech">M.Tech</option>
+            </select>
+            <label>
+                <b>Category :</b>
+            </label>
+
+            <select>
+                <option value="Category">Category</option>
+                <option value="OPEN">OPEN</option>
+                <option value="OBC">OBC</option>
+                <option value="SC">SC</option>
+                <option value="ST">ST</option>
+                <option value="NT">NT</option>
+                <option value="PWD">PWD</option>
+            </select>
+            </div>
+            <div>
+            <label>
+                <b>Gender :</b>
+            </label><br>
+            <input type="radio" value="Male" name="gender" checked > Male
+            <input type="radio" value="Female" name="gender"> Female
+            <input type="radio" value="Other" name="gender"> Other
+            </div>
+            <label>
+                <b>Phone :</b>
+            </label>
+            <input id="phone" name="phone" type="tel" placeholder="Enter phone number" />
+            <br>
+            <br>
+            <b>Current Address :</b>
+            <textarea cols="80" rows="5" placeholder="Current Address" name="address" value="address">
+            </textarea>
+            <label for="Email"><b>Email :</b></label>
+            <input type="text" name="email" placeholder="Enter Email">
+
+            <label for="dob"><b>DOB :</b></label>
+            <input type="date" name="dob" placeholder="Enter DOB"><br>
+            <br>
+
+            <label for="Percentage"><b>MHT-CET Total Percentile :</b></label>
+            <input type="text" name="percentile" placeholder="Enter MHT-CET Total Percentile">
+
+            <label for="Physics percentile"><b>Physics Percentile (Optional) :</b></label>
+            <input type="text" name="phypercentile" placeholder="Enter Physics Percentile">
+
+            <label for="Chemistry percentile"><b>Chemistry Percentile (Optional) :</b></label>
+            <input type="text" name="chempercentile" placeholder="Enter Chem Percentile">
+
+            <label for="Maths percentile"><b>Maths Percentile (Optional) :</b></label>
+            <input type="text" name="mathpercentile" placeholder="Enter Maths Percentile">
+
+            <button type="submit" class="submitbtn">submit</button>
+        </form>
+    </body>
+</html>
+---------------------------------------------------------------------------------------------------------------------------
+
+File open close
+<?php
+$myfile=fopen("webtech.txt","r") or die("Error file cannot be open");
+echo fread($myfile,filesize("webtech.txt"));
+fclose($myfile);
+ ?>
+---------------------------------------------------------------------------------
+
+
